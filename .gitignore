@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+.DS_Store
+
+# Presentation build artifacts
+presentation_build/
+Fact-Checking-Agentic-System-Summary/
+*.inspect.ndjson

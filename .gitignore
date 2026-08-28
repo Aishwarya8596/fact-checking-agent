@@ -7,3 +7,7 @@ __pycache__/
 presentation_build/
 Fact-Checking-Agentic-System-Summary/
 *.inspect.ndjson
+
+# Local presentation files (the GitHub project uses the architecture docs instead)
+Fact-Checking-Agentic-System-Summary.pptx
+Fact-Checking-Agentic-System-Summary-montage.png

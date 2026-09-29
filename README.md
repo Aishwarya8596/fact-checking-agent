@@ -20,6 +20,46 @@ claim
 
 The current prototype supports local demo evidence first and uses Wikipedia retrieval as a fallback when local evidence is not available. The user-facing app checks one claim at a time, while the evaluation script tests multiple known examples to measure whether system changes improve reliability.
 
+## Current Capabilities
+
+The project already demonstrates a complete evidence-grounded fact-checking workflow:
+
+- accepts a user claim through a Gradio interface
+- decomposes complex claims into smaller subclaims
+- retrieves evidence locally first and uses Wikipedia as a web fallback
+- asks the model to reason only from the retrieved evidence
+- returns structured verdicts, explanations, confidence, and citation IDs
+- validates citation IDs with Python before displaying the report
+- combines subclaim results with deterministic LangGraph workflow logic
+- evaluates a set of known claims for verdict accuracy and citation quality
+
+## Current Limitations
+
+This is an intentionally focused learning prototype. Its current boundaries make the system easier to understand, test, and extend:
+
+- Wikipedia is currently the primary external retrieval source
+- retrieval is still developing toward deeper entity, date, and context understanding
+- the evaluation set is small and designed for development feedback rather than production certification
+- confidence scores are model-generated and are not yet calibrated against real-world probabilities
+- the application is designed for local demonstration and does not yet include production deployment features such as authentication, rate limiting, or monitoring
+
+These limitations are useful design checkpoints: each one identifies a measurable improvement for the next version.
+
+## Future Scope
+
+The architecture is designed to grow into a more capable multi-source verification system. Planned improvements include:
+
+- add trusted domain-specific sources for areas such as sports, public health, government, science, and finance
+- improve retrieval with entity-aware, date-aware, semantic, and conflict-aware ranking
+- compare evidence from multiple independent sources and clearly surface disagreements
+- add source credibility rules and freshness indicators to the final report
+- support natural-language questions by converting them into checkable claims or returning concise evidence-based answers
+- introduce human review for high-impact, ambiguous, or conflicting claims
+- expand the evaluation dataset and track additional metrics such as citation correctness, evidence coverage, abstention quality, and confidence calibration
+- add production observability, caching, authentication, and rate limiting when the prototype is deployed
+
+The current implementation provides the foundation for these improvements while keeping every major step visible and explainable.
+
 ## Current Workflow
 
 1. **User enters a claim**
